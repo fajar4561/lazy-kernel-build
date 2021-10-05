@@ -32,4 +32,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
         GITHUB_USER: ${{ secrets.USERNAME }}
         TG_CHAT_ID: ${{ secrets.CHAT_ID }}
-        TG_TOKEN: ${{ secrets.TG_TOKEN }}
+        TG_TOKEN: ${{ secrets.TOKEN }}
