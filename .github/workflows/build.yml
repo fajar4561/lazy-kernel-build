@@ -1,4 +1,4 @@
-name: ARM GCC+LLD Build
+name: Lazy Kernel Builder
 
 on:
   push:
