@@ -59,7 +59,7 @@ NAMA=Signature
 
 JENIS=EAS
 
-VARIAN=LV&NVL
+VARIAN=Both
 # Build Type
 BUILD_TYPE="Nightly"
 
