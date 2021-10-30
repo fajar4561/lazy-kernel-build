@@ -2,7 +2,6 @@ name: Lazy Kernel Builder
 
 on:
   push:
-  schedule:
 
 jobs:
   build:
