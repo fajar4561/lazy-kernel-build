@@ -6,7 +6,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-20.04
+    runs-on: fajar4561/aosp-builder:latest
     steps:
     - uses: actions/checkout@v2
     - name: Setup
