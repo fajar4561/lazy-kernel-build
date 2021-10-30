@@ -33,7 +33,7 @@ jobs:
         GITHUB_USER: ${{ secrets.USERNAME }}
         TG_CHAT_ID: ${{ secrets.CHAT_ID }}
         TG_TOKEN: ${{ secrets.TOKEN }}
-      uses: yanzay/notify-telegram@v0.1.0
+    - uses: yanzay/notify-telegram@v0.1.0
       if: always()
       with:
         chat: ${{ secrets.CHAT_ID }} # user id or channel name secret
