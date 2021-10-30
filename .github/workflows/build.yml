@@ -3,12 +3,13 @@ name: Lazy Kernel Builder
 on:
   push:
   schedule:
-    - cron: '0 0 * * 0,4'
 
 jobs:
   build:
 
     runs-on: ubuntu-20.04
+    container:
+      image: fajar4561/aosp-builder:latest
 
     steps:
     - uses: actions/checkout@v2
@@ -36,3 +37,9 @@ jobs:
         GITHUB_USER: ${{ secrets.USERNAME }}
         TG_CHAT_ID: ${{ secrets.CHAT_ID }}
         TG_TOKEN: ${{ secrets.TOKEN }}
+      uses: yanzay/notify-telegram@v0.1.0
+      if: always()
+      with:
+        chat: ${{ secrets.CHAT_ID }} # user id or channel name secret
+        token: ${{ secrets.TOKEN }} # token secret
+        status: ${{ job.status }} # do not modify this line
