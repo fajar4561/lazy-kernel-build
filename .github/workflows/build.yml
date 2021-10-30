@@ -4,38 +4,39 @@ on:
   push:
 
 jobs:
-  build:
+  super-job:
+      runs-on: ubuntu-20.04
+      container:
+      image: fajar4561/aosp-builder:latest
+      steps:
+      - uses: actions/checkout@v2
+      - name: Setup
+        run: |
+          sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+          sudo apt-get update
+          sudo apt-get install -y flex bison ncurses-dev texinfo gcc gperf patch libtool automake g++ libncurses5-dev gawk subversion expat libexpat1-dev python-all-dev binutils-dev bc libcap-dev autoconf libgmp-dev build-essential pkg-config libmpc-dev libmpfr-dev autopoint gettext txt2man liblzma-dev libssl-dev libz-dev mercurial wget tar gcc-10 g++-10 cmake zstd ninja-build lz4 liblz4-tool liblz4-dev lzma --fix-broken --fix-missing
+      - name: Set build date
+        id: get-date
+        run: |
+          sudo timedatectl set-timezone Asia/Jakarta
+          echo ::set-output name=date::$(/bin/date -u "+%Y%m%d")
+      - name: Build & Push
+        run: |
+          git config --global user.name "${GITHUB_USER}"
+          git config --global user.email "${GITHUB_EMAIL}"
+          git clone --depth=1 https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/Kernel_Asus_SDM660 -b master kernel && cd kernel
+              curl https://raw.githubusercontent.com/fajar4561/lazy-kernel-build/master/build.sh > run.sh
+              source run.sh
 
-    runs-on: fajar4561/aosp-builder:latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Setup
-      run: |
-        sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-        sudo apt-get update
-        sudo apt-get install -y flex bison ncurses-dev texinfo gcc gperf patch libtool automake g++ libncurses5-dev gawk subversion expat libexpat1-dev python-all-dev binutils-dev bc libcap-dev autoconf libgmp-dev build-essential pkg-config libmpc-dev libmpfr-dev autopoint gettext txt2man liblzma-dev libssl-dev libz-dev mercurial wget tar gcc-10 g++-10 cmake zstd ninja-build lz4 liblz4-tool liblz4-dev lzma --fix-broken --fix-missing
-    - name: Set build date
-      id: get-date
-      run: |
-        sudo timedatectl set-timezone Asia/Jakarta
-        echo ::set-output name=date::$(/bin/date -u "+%Y%m%d")
-    - name: Build & Push
-      run: |
-        git config --global user.name "${GITHUB_USER}"
-        git config --global user.email "${GITHUB_EMAIL}"
-        git clone --depth=1 https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/Kernel_Asus_SDM660 -b master kernel && cd kernel
-            curl https://raw.githubusercontent.com/fajar4561/lazy-kernel-build/master/build.sh > run.sh
-            source run.sh
-        
-      env:
-        GITHUB_EMAIL: ${{ secrets.EMAIL }}
-        GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
-        GITHUB_USER: ${{ secrets.USERNAME }}
-        TG_CHAT_ID: ${{ secrets.CHAT_ID }}
-        TG_TOKEN: ${{ secrets.TOKEN }}
-    - uses: yanzay/notify-telegram@v0.1.0
-      if: always()
-      with:
-        chat: ${{ secrets.CHAT_ID }} # user id or channel name secret
-        token: ${{ secrets.TOKEN }} # token secret
-        status: ${{ job.status }} # do not modify this line
+        env:
+          GITHUB_EMAIL: ${{ secrets.EMAIL }}
+          GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
+          GITHUB_USER: ${{ secrets.USERNAME }}
+          TG_CHAT_ID: ${{ secrets.CHAT_ID }}
+          TG_TOKEN: ${{ secrets.TOKEN }}
+      - uses: yanzay/notify-telegram@v0.1.0
+        if: always()
+        with:
+          chat: ${{ secrets.CHAT_ID }} # user id or channel name secret
+          token: ${{ secrets.TOKEN }} # token secret
+          status: ${{ job.status }} # do not modify this line
