@@ -55,11 +55,11 @@ DEFCONFIG=X00TD_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=Perf
+NAMA=Signature
 
 JENIS=HMP
 
-VARIAN=LV
+VARIAN=NLV
 # Build Type
 BUILD_TYPE="Nightly"
 
