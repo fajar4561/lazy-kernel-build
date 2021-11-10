@@ -57,7 +57,7 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 # Kernel Variant
 NAMA=Signature
 
-JENIS=EAS
+JENIS=HMP
 
 VARIAN=NVL
 # Build Type
