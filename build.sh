@@ -59,7 +59,7 @@ NAMA=Signature
 
 JENIS=HMP
 
-VARIAN=NVL
+VARIAN=DUAL
 # Build Type
 BUILD_TYPE="Nightly"
 
