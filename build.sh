@@ -57,7 +57,7 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 # Kernel Variant
 NAMA=Signature
 
-JENIS=CAF
+JENIS=EAS
 
 VARIAN=DUAL
 # Build Type
@@ -68,7 +68,7 @@ BUILD_TYPE="Nightly"
 COMPILER=gcc49
 
 # Message on anykernel when installation
-MESSAGE="don't blame me if u get poor battery backup or weak performance . i'm not responsible . Do with Your Own Risk."
+MESSAGE="This kernel suport NVL & LV roms"
 
 # Kernel is LTO
 LTO=0

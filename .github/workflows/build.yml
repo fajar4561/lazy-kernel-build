@@ -22,7 +22,7 @@ jobs:
         run: |
           git config --global user.name "${GITHUB_USER}"
           git config --global user.email "${GITHUB_EMAIL}"
-          git clone --depth=1 https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/Kernel_Asus_SDM660 -b caf kernel && cd kernel
+          git clone --depth=1 https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/Kernel_Asus_SDM660 -b master-eas kernel && cd kernel
               curl https://raw.githubusercontent.com/fajar4561/lazy-kernel-build/master/build.sh > run.sh
               source run.sh
 
