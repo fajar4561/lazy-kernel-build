@@ -59,7 +59,7 @@ NAMA=Signature
 
 JENIS=Caf
 
-VARIAN=Eas
+VARIAN=Dirty
 # Build Type
 BUILD_TYPE="Nightly"
 
