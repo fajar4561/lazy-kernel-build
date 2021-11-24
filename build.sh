@@ -59,7 +59,7 @@ NAMA=Signature
 
 JENIS=Caf
 
-VARIAN=HMP
+VARIAN=EAS
 # Build Type
 BUILD_TYPE="Nightly"
 
