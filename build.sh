@@ -65,7 +65,7 @@ BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49'
-COMPILER=clang
+COMPILER=gcc49
 
 # Message on anykernel when installation
 MESSAGE="This kernel suport NVL & LV roms"
