@@ -68,7 +68,7 @@ BUILD_TYPE="Nightly"
 COMPILER=gcc49
 
 # Message on anykernel when installation
-MESSAGE="This kernel suport NVL & LV roms"
+MESSAGE="S I G N A T U R I F Y"
 
 # Kernel is LTO
 LTO=0
