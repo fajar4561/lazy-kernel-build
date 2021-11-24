@@ -59,13 +59,13 @@ NAMA=Signature
 
 JENIS=Caf
 
-VARIAN=EAS
+VARIAN=HMP
 # Build Type
 BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49'
-COMPILER=gcc49
+COMPILER=clang
 
 # Message on anykernel when installation
 MESSAGE="This kernel suport NVL & LV roms"
