@@ -57,9 +57,9 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 # Kernel Variant
 NAMA=Signature
 
-JENIS=Caf
+JENIS=EAS
 
-VARIAN=EAS
+VARIAN=Part_III
 # Build Type
 BUILD_TYPE="Nightly"
 
