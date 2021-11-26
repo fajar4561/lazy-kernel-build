@@ -55,11 +55,11 @@ DEFCONFIG=X00TD_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
-NAMA=Signature
+NAMA=Signature.OC
 
 JENIS=Caf
 
-VARIAN=HMP
+VARIAN=EAS
 # Build Type
 BUILD_TYPE="Nightly"
 
