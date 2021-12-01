@@ -57,7 +57,7 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 # Kernel Variant
 NAMA=Signature
 
-JENIS=EAS
+JENIS=HMP
 
 VARIAN=Part_III
 # Build Type
@@ -65,7 +65,7 @@ BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49'
-COMPILER=clang
+COMPILER=gcc49
 
 # Message on anykernel when installation
 MESSAGE="S I G N A T U R I F Y"
