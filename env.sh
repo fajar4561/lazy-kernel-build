@@ -6,9 +6,6 @@ KERNEL_REPO=https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/Kern
 # Kernel Branch
 KERNEL_BRANCH=master
 
-# The defult directory where the kernel should be placed
-KERNEL_DIR=$PWD
-
 # The name of the device for which the kernel is built
 MODEL="Asus Zenfone Max Pro M1"
 
