@@ -23,7 +23,7 @@ jobs:
           git config --global user.name "${GITHUB_USER}"
           git config --global user.email "${GITHUB_EMAIL}"
           source env.sh
-          git clone --depth=1 https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/Kernel_Asus_SDM660 -b master kernel && cd kernel
+          git clone --depth=1 $KERNEL_REPO -b $KERNEL_BRANCH kernel && cd kernel
           mv /home/runner/work/lazy-kernel-build/lazy-kernel-build/build.sh /home/runner/work/lazy-kernel-build/lazy-kernel-build/kernel
           source build.sh
 
