@@ -24,7 +24,7 @@ NAMA=Signature
 
 JENIS=Stock
 
-VARIAN=VI
+VARIAN=HMP
 
 # Build Type
 BUILD_TYPE="Nightly"
@@ -34,4 +34,4 @@ BUILD_TYPE="Nightly"
 COMPILER=gcc49
 
 # Message on anykernel when installation
-MESSAGE="Salam Dari kota Congyang"
+MESSAGE="Salam dari kota congyang"
