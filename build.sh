@@ -141,14 +141,14 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 	elif [ $COMPILER = "linaro" ]
 	then
 		msg "|| Cloning GCC 64  ||"
-		git clone --depth=1 https://github.com/Thoreck-project/aarch64-linux-gnu-1 -b linaro8-20190402 gcc64
+		git clone --depth=1 https://github.com/Thoreck-project/aarch64-linux-gnu -b linaro8-20190402 gcc64
 		msg "|| Cloning GCC 32  ||"
 		git clone --depth=1 https://github.com/Thoreck-project/arm-linux-gnueabi -b stable-gcc gcc32
 		
 	elif [ $COMPILER = "gcc2" ]
 	then
 		msg "|| Cloning GCC 64  ||"
-		git clone --depth=1 https://github.com/Thoreck-project/aarch64-linux-gnu-1 -b gcc8-201903-A gcc64
+		git clone --depth=1 https://github.com/Thoreck-project/aarch64-linux-gnu -b gcc8-201903-A gcc64
 		msg "|| Cloning GCC 32  ||"
 		git clone --depth=1 https://github.com/Thoreck-project/arm-linux-gnueabi -b stable-gcc gcc32
 	fi
@@ -340,6 +340,18 @@ build_kernel() {
 		make -j"$PROCS" O=out \
 				CROSS_COMPILE_ARM32=arm-linux-androideabi- \
 				CROSS_COMPILE=aarch64-linux-android- \
+				"${MAKE[@]}" 2>&1 | tee build.log
+	elif [ $COMPILER = "gcc2" ]
+	then
+		make -j"$PROCS" O=out \
+				CROSS_COMPILE_ARM32=aarch64-linux-gnu- \
+				CROSS_COMPILE=arm-linux-gnueabi- \
+				"${MAKE[@]}" 2>&1 | tee build.log
+	elif [ $COMPILER = "linaro" ]
+	then
+		make -j"$PROCS" O=out \
+				CROSS_COMPILE_ARM32=aarch64-linux-gnu- \
+				CROSS_COMPILE=arm-linux-gnueabi- \
 				"${MAKE[@]}" 2>&1 | tee build.log
 	elif [ $COMPILER = "gcc" ]
 	then
