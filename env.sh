@@ -30,8 +30,17 @@ VARIAN=EAS
 BUILD_TYPE="Nightly"
 
 # Specify compiler.
-# 'clang' or 'clangxgcc' or 'gcc' or 'gcc49'
-COMPILER=gcc49
+# 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2'
+COMPILER=clangxgcc
 
 # Message on anykernel when installation
 MESSAGE="Salam dari kota congyang"
+
+# KBUILD ENV
+K_USER=Thoreck
+K_HOST=Github
+K_VERSION=1
+
+# arch & subarch
+K_ARCH=arm64
+K_SUBARCH=arm64

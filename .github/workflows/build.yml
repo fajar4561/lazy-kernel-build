@@ -22,9 +22,14 @@ jobs:
         run: |
           git config --global user.name "${GITHUB_USER}"
           git config --global user.email "${GITHUB_EMAIL}"
+          echo "Show scripts"
+          cat env.sh
           source env.sh
+          echo "Cloning kernel"
           git clone --depth=1 $KERNEL_REPO -b $KERNEL_BRANCH kernel && cd kernel
           mv /home/runner/work/lazy-kernel-build/lazy-kernel-build/build.sh /home/runner/work/lazy-kernel-build/lazy-kernel-build/kernel
+          echo "Show scripts"
+          cat build.sh
           source build.sh
 
         env:
