@@ -41,9 +41,10 @@ cdir() {
 # The defult directory where the kernel should be placed
 KERNEL_DIR=$PWD
 
-# Os info
+# Server info
 CORE=$(nproc --all)
 OS_VERSION=$(cat /etc/issue)
+CPU_MODEL=$(lscpu | grep 'Model name' | cut -f 2 -d ":" | awk '{$1=$1}1')
 
 # Kernel is LTO
 LTO=0
@@ -140,14 +141,14 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 	elif [ $COMPILER = "linaro" ]
 	then
 		msg "|| Cloning GCC 64  ||"
-		git clone --depth=1 https://github.com/Thoreck-project/aarch64-linux-gnu -b linaro8-20190402 gcc64
+		git clone --depth=1 https://github.com/Thoreck-project/aarch64-linux-gnu-1 -b linaro8-20190402 gcc64
 		msg "|| Cloning GCC 32  ||"
 		git clone --depth=1 https://github.com/Thoreck-project/arm-linux-gnueabi -b stable-gcc gcc32
 		
 	elif [ $COMPILER = "gcc2" ]
 	then
 		msg "|| Cloning GCC 64  ||"
-		git clone --depth=1 https://github.com/Thoreck-project/aarch64-linux-gnu -b gcc8-201903-A gcc64
+		git clone --depth=1 https://github.com/Thoreck-project/aarch64-linux-gnu-1 -b gcc8-201903-A gcc64
 		msg "|| Cloning GCC 32  ||"
 		git clone --depth=1 https://github.com/Thoreck-project/arm-linux-gnueabi -b stable-gcc gcc32
 	fi
@@ -428,6 +429,7 @@ gen_zip() {
         
         <b>CPU 💻 </b>
         -<code>$CORE Cores</code>
+        -<code>$CPU_MODEL Cores</code>
         
         <b>OS 📺 </b>
         -<code>$OS_VERSION</code>
