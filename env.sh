@@ -31,7 +31,7 @@ BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2'
-COMPILER=clangxgcc
+COMPILER=gcc2
 
 # Message on anykernel when installation
 MESSAGE="Salam dari kota congyang"
@@ -39,7 +39,7 @@ MESSAGE="Salam dari kota congyang"
 # KBUILD ENV
 K_USER=Thoreck
 K_HOST=Github
-K_VERSION=1
+K_VERSION=101
 
 # arch & subarch
 K_ARCH=arm64
