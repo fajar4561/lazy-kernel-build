@@ -43,7 +43,7 @@ KERNEL_DIR=$PWD
 
 # Os info
 CORE=$(nproc --all)
-OS_VERSION=$(cat /etc/os-release)
+OS_VERSION=$(cat /etc/issue)
 
 # Kernel is LTO
 LTO=0
@@ -438,12 +438,9 @@ gen_zip() {
         <b>Device 📱 </b>
         -<code>$DEVICE ($MANUFACTURERINFO)</code>
          
-       <b>==========================================</b>
-         
         <b>Changelog 📣 </b>
         - <code>$COMMIT_HEAD</code>
-        
-        <b>==========================================</b>
+   
         #$BUILD_TYPE #$JENIS #$VARIAN"
         
 	cd ..
