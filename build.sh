@@ -208,11 +208,11 @@ exports() {
 		PATH=$GCC64_DIR/bin/:$GCC32_DIR/bin/:/usr/bin:$PATH
 	elif [ $COMPILER = "gcc2" ]
 	then
-		KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-linux-gnu --version | head -n 1 )
+		KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-linux-gnu-gcc --version | head -n 1 )
 		PATH=$GCC64_DIR/bin/:$GCC32_DIR/bin/:/usr/bin:$PATH
 	elif [ $COMPILER = "linaro" ]
 	then
-		KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-linux-gnu --version | head -n 1 )
+		KBUILD_COMPILER_STRING=$("$GCC64_DIR"/bin/aarch64-linux-gnu-gcc --version | head -n 1 )
 		PATH=$GCC64_DIR/bin/:$GCC32_DIR/bin/:/usr/bin:$PATH
 	fi
 
@@ -430,29 +430,29 @@ gen_zip() {
         -F chat_id="$CHATID"  \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
-        -F caption="✅<b>Build Done</b>
+        -F caption="✅ <b>Build Done</b>
         - <code>$((DIFF / 60)) minute(s) $((DIFF % 60)) second(s) </code>
         
-        <b>Date 📅 </b>
+        📅 <b>Date</b>
         -<code>$DATE2</code>
         
-        <b>Linux Version 📜</b>
+        🔖 <b>Linux Version</b>
         -<code>$LINUXVER</code>
         
-        <b>CPU 💻 </b>
+        💻 <b>CPU</b>
         -<code>$CORE Cores</code>
-        -<code>$CPU_MODEL Cores</code>
+        -<code>$CPU_MODEL</code>
         
-        <b>OS 📺 </b>
+        🖥 <b>OS</b>
         -<code>$OS_VERSION</code>
         
-         <b>Compiler ⚙️ </b>
+         ⚙️ <b>Compiler</b>
         -<code>$KBUILD_COMPILER_STRING</code>
         
-        <b>Device 📱 </b>
+       📱 <b>Device</b>
         -<code>$DEVICE ($MANUFACTURERINFO)</code>
          
-        <b>Changelog 📣 </b>
+        📣 <b>Changelog</b>
         - <code>$COMMIT_HEAD</code>
    
         #$BUILD_TYPE #$JENIS #$VARIAN"
