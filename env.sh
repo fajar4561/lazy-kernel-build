@@ -22,16 +22,16 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 # Kernel Variant
 NAMA=Signature
 
-JENIS=caf
+JENIS=Stock
 
-VARIAN=eas
+VARIAN=EAS
 
 # Build Type
 BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2'
-COMPILER=linaro
+COMPILER=clang
 
 # Message on anykernel when installation
 MESSAGE="Salam dari kota congyang"
