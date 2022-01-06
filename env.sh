@@ -24,7 +24,7 @@ NAMA=Signature
 
 JENIS=Stock
 
-VARIAN=HMP
+VARIAN=EAS
 
 # Build Type
 BUILD_TYPE="Nightly"
