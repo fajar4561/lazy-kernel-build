@@ -4,7 +4,7 @@
 KERNEL_REPO=https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/Kernel_Asus_SDM660
 
 # Kernel Branch
-KERNEL_BRANCH=master
+KERNEL_BRANCH=eas
 
 # The name of the device for which the kernel is built
 MODEL="Asus Zenfone Max Pro M1"
@@ -22,7 +22,7 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 # Kernel Variant
 NAMA=Signature
 
-JENIS=HMP
+JENIS=EAS
 
 VARIAN=Stock
 
@@ -31,7 +31,7 @@ BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2'
-COMPILER=gcc49
+COMPILER=linaro
 
 # Message on anykernel when installation
 MESSAGE="Salam dari kota congyang"
