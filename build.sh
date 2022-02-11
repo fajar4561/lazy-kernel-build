@@ -46,12 +46,7 @@ CORE=$(nproc --all)
 OS_VERSION=$(cat /etc/issue)
 CPU_MODEL=$(lscpu | grep 'Model name' | cut -f 2 -d ":" | awk '{$1=$1}1')
 
-# Kernel is LTO
-LTO=0
 
-# Specify linker.
-# 'ld.lld'(default)
-LINKER=ld.lld
 
 # Clean source prior building. 1 is NO(default) | 0 is YES
 INCREMENTAL=1
@@ -115,7 +110,10 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 	then
 		msg "|| Cloning clang ||"
 		git clone --depth=1 https://github.com/fajar4561/SignatureTC_Clang -b master clang
-
+    elif [ $COMPILER = "clang2" ]
+	then
+	msg "|| Cloning clang ||"
+		git clone --depth=1 https://github.com/fajar4561/SignatureTC_Clang -b master clang
 	elif [ $COMPILER = "gcc49" ]
 	then
 		msg "|| Cloning GCC 64  ||"
@@ -194,6 +192,9 @@ exports() {
 	then
 		KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 		PATH=$TC_DIR/bin/:$PATH
+	elif [ $COMPILER = "clang2" ]
+	then
+	KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 	elif [ $COMPILER = "clangxgcc" ]
 	then
 		KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
@@ -334,6 +335,18 @@ build_kernel() {
         OBJDUMP=llvm-objdump \
         CLANG_TRIPLE=aarch64-linux-gnu- \
 		STRIP=llvm-strip \
+		 "${MAKE[@]}" 2>&1 | tee build.log
+	elif [ $COMPILER = "clang2" ]
+	then
+		make -j"$PROCS" O=out \
+		CC=clang \
+	    AR=llvm-ar \
+		OBJDUMP=llvm-objdump \
+		STRIP=llvm-strip \
+		LLVM_IAS=1 \
+		LLVM=1 \
+		LD="$LINKER" \
+		LD_LIBRARY_PATH=$TC_DIR/lib
 		 "${MAKE[@]}" 2>&1 | tee build.log
 	elif [ $COMPILER = "gcc49" ]
 	then
