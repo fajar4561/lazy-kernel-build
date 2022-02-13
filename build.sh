@@ -114,7 +114,7 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 	if [ $COMPILER = "clang" ]
 	then
 		msg "|| Cloning clang ||"
-		git clone --depth=1 https://github.com/fajar4561/SignatureTC_Clang -b master clang
+		git clone --depth=1 https://github.com/fajar4561/SignatureTC_Clang -b 15 clang
 
 	elif [ $COMPILER = "gcc49" ]
 	then
