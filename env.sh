@@ -1,10 +1,10 @@
 #! /bin/bash
 
 # Kernel Repo
-KERNEL_REPO=https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/Kernel_Asus_SDM660_4.19
+KERNEL_REPO=https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/Kernel_Asus_SDM660
 
 # Kernel Branch
-KERNEL_BRANCH=beta
+KERNEL_BRANCH=signature
 
 # The name of the device for which the kernel is built
 MODEL="Asus Zenfone Max Pro M1"
@@ -14,7 +14,7 @@ DEVICE="X00TD"
 
 # The defconfig which should be used. Get it from config.gz from
 # your device or check source
-DEFCONFIG=asus/X00TD_defconfig
+DEFCONFIG=X00TD_defconfig
 
 # Show manufacturer info
 MANUFACTURERINFO="ASUSTek Computer Inc."
@@ -22,7 +22,7 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 # Kernel Variant
 NAMA=Signature
 
-JENIS=BETA
+JENIS=CAF
 
 VARIAN=Stock
 
@@ -31,7 +31,7 @@ BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2'
-COMPILER=clang
+COMPILER=gcc49
 
 # Message on anykernel when installation
 MESSAGE="Salam dari kota congyang"
@@ -39,7 +39,7 @@ MESSAGE="Salam dari kota congyang"
 # KBUILD ENV
 K_USER=Thoreck
 K_HOST=Github
-K_VERSION=101
+K_VERSION=636
 
 
 # arch & subarch
