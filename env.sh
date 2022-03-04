@@ -38,7 +38,7 @@ MESSAGE="Salam dari kota congyang"
 
 # KBUILD ENV
 K_USER=Thoreck
-K_HOST=Github
+K_HOST=Android_builder
 K_VERSION=636
 
 
