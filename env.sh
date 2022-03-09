@@ -24,7 +24,7 @@ NAMA=Signature
 
 JENIS=CAF
 
-VARIAN=ONE
+VARIAN=Def
 
 # Build Type
 BUILD_TYPE="Nightly"
