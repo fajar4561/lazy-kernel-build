@@ -33,7 +33,7 @@ BUILD_TYPE="Nightly"
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2'
 COMPILER=gcc49
 
-# Message on anykernel when installation
+# Message on anykernel when installatio
 MESSAGE="Salam dari kota congyang"
 
 # KBUILD ENV
