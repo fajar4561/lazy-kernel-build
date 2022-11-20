@@ -31,7 +31,7 @@ BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2'
-COMPILER=gcc49
+COMPILER=gcc2
 
 # Message on anykernel when installatio
 MESSAGE="Salam dari kota congyang"
