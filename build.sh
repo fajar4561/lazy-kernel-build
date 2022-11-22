@@ -115,7 +115,15 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 	then
 		msg "|| Cloning clang ||"
 		git clone --depth=1 https://github.com/fajar4561/SignatureTC_Clang -b 15 clang
-
+		
+    elif [ $COMPILER = "clang2" ]
+    then
+        msg "|| Cloning clang ||"
+		git clone --depth=1 https://github.com/RyuujiX/SDClang -b 14 $KERNEL_DIR/clang
+		msg "|| Cloning Gcc 64 ||"
+		git clone --depth=1 https://github.com/Thoreck-project/aarch64-linux-android-4.9 $KERNEL_DIR/gcc64
+		msg "|| Cloning GCC 32  ||"
+		git clone --depth=1 https://github.com/Thoreck-project/arm-linux-androideabi-4.9 $KERNEL_DIR/gcc32
 	elif [ $COMPILER = "gcc49" ]
 	then
 		msg "|| Cloning GCC 64  ||"
@@ -194,6 +202,10 @@ exports() {
 	then
 		KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
 		PATH=$TC_DIR/bin/:$PATH
+	elif [ $COMPILER = "clang2" ]
+	then
+	    KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
+	    PATH=$TC_DIR/bin/$GCC64_DIR/bin/:$GCC32_DIR/bin/:/usr/bin:$PATH
 	elif [ $COMPILER = "clangxgcc" ]
 	then
 		KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
@@ -335,6 +347,16 @@ build_kernel() {
         CLANG_TRIPLE=aarch64-linux-gnu- \
 		STRIP=llvm-strip \
 		 "${MAKE[@]}" 2>&1 | tee build.log
+	elif [ $COMPILER = "clang2" ]
+	then
+	   make -j"$PROCS" O=out \
+	   CC=clang \
+	   CROSS_COMPILE_ARM32=arm-linux-androideabi- \
+	   CROSS_COMPILE=aarch64-linux-android- \
+	   CLANG_TRIPLE=aarch64-linux-gnu- \
+	   HOSTCC=gcc \
+	   HOSTCXX=g++ \
+	   "${MAKE[@]}" 2>&1 | tee build.log
 	elif [ $COMPILER = "gcc49" ]
 	then
 		make -j"$PROCS" O=out \

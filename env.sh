@@ -22,23 +22,23 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 # Kernel Variant
 NAMA=Signature
 
-JENIS=Experimental
+JENIS=IV-SE
 
-VARIAN=Mode
+VARIAN=CAF
 
 # Build Type
 BUILD_TYPE="Nightly"
 
 # Specify compiler.
-# 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2'
-COMPILER=gcc49
+# 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2', clang2
+COMPILER=clang2
 
 # Message on anykernel when installatio
 MESSAGE="Salam dari kota congyang"
 
 # KBUILD ENV
 K_USER=Thoreck
-K_HOST=Android_builder
+K_HOST=BOT_BUILDER
 K_VERSION=636
 
 
