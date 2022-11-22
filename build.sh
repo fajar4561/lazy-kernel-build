@@ -354,8 +354,6 @@ build_kernel() {
 	   CROSS_COMPILE_ARM32=arm-linux-androideabi- \
 	   CROSS_COMPILE=aarch64-linux-android- \
 	   CLANG_TRIPLE=aarch64-linux-gnu- \
-	   HOSTCC=gcc \
-	   HOSTCXX=g++ \
 	   "${MAKE[@]}" 2>&1 | tee build.log
 	elif [ $COMPILER = "gcc49" ]
 	then
