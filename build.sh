@@ -351,6 +351,10 @@ build_kernel() {
 	then
 	   make -j"$PROCS" O=out \
 	   CC=clang \
+	   AR=llvm-ar \
+	   NM=llvm-nm \
+       OBJCOPY=llvm-objcopy \
+       OBJDUMP=llvm-objdump \
 	   CROSS_COMPILE_ARM32=arm-linux-androideabi- \
 	   CROSS_COMPILE=aarch64-linux-android- \
 	   CLANG_TRIPLE=aarch64-linux-gnu- \
