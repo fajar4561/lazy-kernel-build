@@ -22,24 +22,24 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 # Kernel Variant
 NAMA=Signature
 
-JENIS=IV-R1
+JENIS=IV
 
-VARIAN=XPR
+VARIAN=r1
 
 # Build Type
 BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2', clang2
-COMPILER=gcc49
+COMPILER=linaro
 
 # Message on anykernel when installatio
-MESSAGE="Salam dari kota congyang"
+MESSAGE="just flash and forget"
 
 # KBUILD ENV
 K_USER=Thoreck
-K_HOST=BOT_BUILDER
-K_VERSION=636
+K_HOST=Github
+K_VERSION=4
 
 
 # arch & subarch
