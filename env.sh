@@ -19,6 +19,9 @@ DEFCONFIG=X00TD_defconfig
 # Show manufacturer info
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
+# tambahkan changelog di anykernel
+CHANGELOGS=y
+
 # Kernel Variant
 HMP=y
 

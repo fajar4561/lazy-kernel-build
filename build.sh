@@ -107,6 +107,7 @@ COMMIT_HEAD=$(git log --pretty=format:'%s' -n1)
 # Set Date
 DATE=$(TZ=Asia/Jakarta date +"%Y%m%d_%H%M")
 DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
+DATE_LOG=$(TZ=Asia/Jakarta date +"%d-%b-%Y")
 #Now Its time for other stuffs like cloning, exporting, etc
 
  clone() {
@@ -435,6 +436,12 @@ build_kernel() {
 gen_zip() {
 	msg "|| Zipping into a flashable zip ||"
 	mv "$KERNEL_DIR"/out/arch/arm64/boot/Image.gz-dtb AnyKernel3/Image.gz-dtb
+	# tambahkan changelogs
+	if [ $CHANGELOGS = " y" ]
+	then
+		mv "$KERNEL_DIR"/changelogs AnyKernel3/changelogs
+	fi
+	
 	if [ $BUILD_DTBO = 1 ]
 	then
 		mv "$KERNEL_DIR"/out/arch/arm64/boot/dtbo.img AnyKernel3/dtbo.img
