@@ -20,9 +20,11 @@ DEFCONFIG=X00TD_defconfig
 MANUFACTURERINFO="ASUSTek Computer Inc."
 
 # Kernel Variant
+HMP=y
+
 NAMA=Signature
 
-JENIS=IV
+JENIS=IV-HMP
 
 VARIAN=r2
 
@@ -31,7 +33,7 @@ BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2', clang2
-COMPILER=gcc49
+COMPILER=gcc2
 
 # Message on anykernel when installatio
 MESSAGE="just flash and forget"
