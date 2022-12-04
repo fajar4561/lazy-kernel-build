@@ -192,7 +192,7 @@ DATE_LOG=$(TZ=Asia/Jakarta date +"%d-%b-%Y")
 setversioning() {
     # For staging branch
     KERNELNAME="$NAMA-$JENIS-$VARIAN-$LINUXVER-$DATE"
-    JENENG="$NAMA-$JENIS-$VARIAN-$LINUXVER
+    JENENG="$NAMA-$JENIS-$VARIAN-$LINUXVER"
     # Export our new localversion and zipnames
     export KERNELNAME
     export ZIPNAME="$KERNELNAME.zip"
