@@ -183,6 +183,11 @@ DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
 		msg "|| Cloning libufdt ||"
 		git clone https://android.googlesource.com/platform/system/libufdt "$KERNEL_DIR"/scripts/ufdt/libufdt
 	fi
+	if [ $SPECTRUM = "y" ]
+	then
+	   msg "|| Cloning Spectrum Profil ||"
+	   git clone https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/spectrum spectrum
+	fi
 }
 
 ##----------------------------------------------------------##
@@ -440,6 +445,16 @@ gen_zip() {
 	then
 		mv "$KERNEL_DIR"/changelogs AnyKernel3/changelogs
 	fi
+	# tambahkan spectrum
+	if [ $SPECTRUM = "y" ]
+        then
+           if [ $HMP = "y" ]
+           then
+              cp -af  "$KERNEL_DIR"/spectrum/hmp AnyKernel3/spectrum/init.spectrum.rc
+           else
+              cp -af  "$KERNEL_DIR"/spectrum/eas AnyKernel3/spectrum/init.spectrum.rc
+           fi
+    fi
 	
 	if [ $BUILD_DTBO = 1 ]
 	then
@@ -447,6 +462,7 @@ gen_zip() {
 	fi
 	cd AnyKernel3 || exit
         cp -af anykernel-real.sh anykernel.sh
+        
 	sed -i "s/kernel.string=.*/kernel.string=$NAMA-$VARIAN/g" anykernel.sh
 	sed -i "s/kernel.for=.*/kernel.for=$JENIS/g" anykernel.sh
 	sed -i "s/kernel.compiler=.*/kernel.compiler=$KBUILD_COMPILER_STRING/g" anykernel.sh

@@ -4,7 +4,7 @@
 KERNEL_REPO=https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/Kernel_Asus_SDM660
 
 # Kernel Branch
-KERNEL_BRANCH=R2/hmp
+KERNEL_BRANCH=R2/eas
 
 # The name of the device for which the kernel is built
 MODEL="Asus Zenfone Max Pro M1"
@@ -22,12 +22,16 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 # tambahkan changelog di anykernel
 CHANGELOGS=y
 
+# opsi spectrum "y" atau "n"
+SPECTRUM=y
+
 # Kernel Variant
-HMP=y
+
+HMP=n
 
 NAMA=Signature
 
-JENIS=IV-HMP
+JENIS=IV-EAS
 
 VARIAN=r2
 
@@ -36,7 +40,7 @@ BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2', clang2
-COMPILER=gcc2
+COMPILER=gcc49
 
 # Message on anykernel when installatio
 MESSAGE="just flash and forget"
@@ -44,7 +48,7 @@ MESSAGE="just flash and forget"
 # KBUILD ENV
 K_USER=Thoreck
 K_HOST=Github
-K_VERSION=4
+K_VERSION=1
 
 
 # arch & subarch
