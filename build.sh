@@ -192,6 +192,7 @@ DATE_LOG=$(TZ=Asia/Jakarta date +"%d-%b-%Y")
 setversioning() {
     # For staging branch
     KERNELNAME="$NAMA-$JENIS-$VARIAN-$LINUXVER-$DATE"
+    JENENG="$NAMA-$JENIS-$VARIAN-$LINUXVER
     # Export our new localversion and zipnames
     export KERNELNAME
     export ZIPNAME="$KERNELNAME.zip"
@@ -437,7 +438,7 @@ gen_zip() {
 	msg "|| Zipping into a flashable zip ||"
 	mv "$KERNEL_DIR"/out/arch/arm64/boot/Image.gz-dtb AnyKernel3/Image.gz-dtb
 	# tambahkan changelogs
-	if [ $CHANGELOGS = " y" ]
+	if [ $CHANGELOGS = "y" ]
 	then
 		mv "$KERNEL_DIR"/changelogs AnyKernel3/changelogs
 	fi
