@@ -107,7 +107,6 @@ COMMIT_HEAD=$(git log --pretty=format:'%s' -n1)
 # Set Date
 DATE=$(TZ=Asia/Jakarta date +"%Y%m%d_%H%M")
 DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
-DATE_LOG=$(TZ=Asia/Jakarta date +"%d-%b-%Y")
 #Now Its time for other stuffs like cloning, exporting, etc
 
  clone() {
@@ -192,7 +191,6 @@ DATE_LOG=$(TZ=Asia/Jakarta date +"%d-%b-%Y")
 setversioning() {
     # For staging branch
     KERNELNAME="$NAMA-$JENIS-$VARIAN-$LINUXVER-$DATE"
-    JENENG="$NAMA-$JENIS-$VARIAN-$LINUXVER"
     # Export our new localversion and zipnames
     export KERNELNAME
     export ZIPNAME="$KERNELNAME.zip"
@@ -449,8 +447,6 @@ gen_zip() {
 	fi
 	cd AnyKernel3 || exit
         cp -af anykernel-real.sh anykernel.sh
-    sed -i "s/kernel.string=.*/jeneng=$JENENG/g" anykernel.sh
-    sed -i "s/kernel.string=.*/datelog=$DATE_LOG/g" anykernel.sh
 	sed -i "s/kernel.string=.*/kernel.string=$NAMA-$VARIAN/g" anykernel.sh
 	sed -i "s/kernel.for=.*/kernel.for=$JENIS/g" anykernel.sh
 	sed -i "s/kernel.compiler=.*/kernel.compiler=$KBUILD_COMPILER_STRING/g" anykernel.sh
