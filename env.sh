@@ -4,7 +4,7 @@
 KERNEL_REPO=https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/Kernel_Asus_SDM660
 
 # Kernel Branch
-KERNEL_BRANCH=R2/hmp
+KERNEL_BRANCH=R2/eas
 
 # The name of the device for which the kernel is built
 MODEL="Asus Zenfone Max Pro M1"
@@ -27,13 +27,13 @@ SPECTRUM=y
 
 # Kernel Variant
 
-HMP=y
+HMP=n
 
 NAMA=Signature
 
-JENIS=IV-HMP
+JENIS=IV-EAS
 
-VARIAN=r2
+VARIAN=r3
 
 # Build Type
 BUILD_TYPE="Nightly"
