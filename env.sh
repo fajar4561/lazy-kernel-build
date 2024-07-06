@@ -14,7 +14,7 @@ DEVICE="Sunfish"
 
 # The defconfig which should be used. Get it from config.gz from
 # your device or check source
-DEFCONFIG=sunfish_defconfig
+DEFCONFIG=blu_spark_defconfig
 
 # Show manufacturer info
 MANUFACTURERINFO="ASUSTek Computer Inc."
