@@ -1,20 +1,20 @@
 #! /bin/bash
 
 # Kernel Repo
-KERNEL_REPO=https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/Kernel_Asus_SDM660
+KERNEL_REPO=https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/sunfish_kernel
 
 # Kernel Branch
-KERNEL_BRANCH=R3
+KERNEL_BRANCH=Rmaster
 
 # The name of the device for which the kernel is built
-MODEL="Asus Zenfone Max Pro M1"
+MODEL="Google Pixel 4a"
 
 # The codename of the device
-DEVICE="X00TD"
+DEVICE="Sunfish"
 
 # The defconfig which should be used. Get it from config.gz from
 # your device or check source
-DEFCONFIG=X00TD_defconfig
+DEFCONFIG=sunfish_defconfig
 
 # Show manufacturer info
 MANUFACTURERINFO="ASUSTek Computer Inc."
@@ -23,7 +23,7 @@ MANUFACTURERINFO="ASUSTek Computer Inc."
 CHANGELOGS=n
 
 # opsi spectrum "y" atau "n"
-SPECTRUM=y
+SPECTRUM=n
 
 # Kernel Variant
 
@@ -31,9 +31,9 @@ HMP=n
 
 NAMA=Signature
 
-JENIS=IV
+JENIS=I
 
-VARIAN=r3
+VARIAN=Beta
 
 # Build Type
 BUILD_TYPE="Nightly"
