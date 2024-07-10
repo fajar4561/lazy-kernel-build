@@ -1,10 +1,10 @@
 #! /bin/bash
 
 # Kernel Repo
-KERNEL_REPO=https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/android_kernel_google_msm-4.14
+KERNEL_REPO=https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/sunfish_kernel
 
 # Kernel Branch
-KERNEL_BRANCH=axp-a13
+KERNEL_BRANCH=1
 
 # The name of the device for which the kernel is built
 MODEL="Google Pixel 4a"
@@ -40,7 +40,7 @@ BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2', clang2
-COMPILER=clang
+COMPILER=gcc2
 
 # Message on anykernel when installatio
 MESSAGE="just flash and forget"
