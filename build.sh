@@ -47,7 +47,7 @@ OS_VERSION=$(cat /etc/issue)
 CPU_MODEL=$(lscpu | grep 'Model name' | cut -f 2 -d ":" | awk '{$1=$1}1')
 
 # Kernel is LTO
-LTO=1
+LTO=0
 
 # Specify linker.
 # 'ld.lld'(default)
