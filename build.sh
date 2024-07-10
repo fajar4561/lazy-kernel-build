@@ -445,16 +445,6 @@ gen_zip() {
 	then
 		mv "$KERNEL_DIR"/changelogs AnyKernel3/changelogs
 	fi
-	# tambahkan spectrum
-	if [ $SPECTRUM = "y" ]
-        then
-           if [ $HMP = "y" ]
-           then
-              cp -af  "$KERNEL_DIR"/spectrum/hmp AnyKernel3/spectrum/init.spectrum.rc
-           else
-              cp -af  "$KERNEL_DIR"/spectrum/eas AnyKernel3/spectrum/init.spectrum.rc
-           fi
-    fi
 	
 	if [ $BUILD_DTBO = 1 ]
 	then
