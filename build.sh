@@ -1,6 +1,5 @@
 #! /bin/bash
 # shellcheck disable=SC2154
-set -e
  # Script For Building Android arm64 Kernel
  #
  # Copyright (c) 2018-2021 Panchajanya1999 <rsk52959@gmail.com>
@@ -69,7 +68,7 @@ PTTG=1
 DEF_REG=0
 
 # Files/artifacts
-FILES=Image.gz-dtb
+FILES=Image.lz4
 
 # Build dtbo.img (select this only if your source has support to building dtbo.img)
 # 1 is YES | 0 is NO(default)
@@ -440,7 +439,7 @@ build_kernel() {
 
 gen_zip() {
 	msg "|| Zipping into a flashable zip ||"
-	mv "$KERNEL_DIR"/out/arch/arm64/boot/Image.gz-dtb AnyKernel3/Image.gz-dtb
+	mv "$KERNEL_DIR"/out/arch/arm64/boot/Image.lz4 AnyKernel3/Image.lz4
 	# tambahkan changelogs
 	if [ $CHANGELOGS = "y" ]
 	then
