@@ -5,25 +5,46 @@ on:
 
 jobs:
   super-job:
-      runs-on: ubuntu-20.04
-      steps:
+    runs-on: ubuntu-20.04
+
+    env:
+      CACHE_DIR: ~/.cache
+
+    steps:
       - uses: actions/checkout@v2
+
       - name: Setup
         run: |
-          sudo apt-get update && sudo apt-get upgrade -y
-          sudo apt-get install -y flex bison ncurses-dev texinfo gcc gperf patch libtool automake g++ libncurses5-dev gawk subversion expat libexpat1-dev python-all-dev binutils-dev bc libcap-dev autoconf libgmp-dev build-essential pkg-config libmpc-dev libmpfr-dev autopoint gettext txt2man liblzma-dev libssl-dev libz-dev mercurial wget tar gcc-10 g++-10 cmake zstd ninja-build lz4 liblz4-tool liblz4-dev lzma --fix-broken --fix-missing
+          sudo apt-get update && \
+          sudo apt-get install -y \
+            flex bison ncurses-dev texinfo gcc gperf patch \
+            libtool automake g++ libncurses5-dev gawk subversion \
+            expat libexpat1-dev python-all-dev binutils-dev bc \
+            libcap-dev autoconf libgmp-dev build-essential \
+            pkg-config libmpc-dev libmpfr-dev autopoint gettext \
+            txt2man liblzma-dev libssl-dev libz-dev mercurial \
+            wget tar gcc-10 g++-10 cmake zstd ninja-build lz4 \
+            liblz4-tool liblz4-dev lzma --fix-broken --fix-missing
+
       - name: Set build date
         id: get-date
         run: |
           sudo timedatectl set-timezone Asia/Jakarta
           echo ::set-output name=date::$(/bin/date -u "+%Y%m%d")
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.CACHE_DIR }}
+          key: ${{ runner.os }}-kernel-${{ hashFiles('**/lockfiles') }}
+
       - name: Build & Push
         run: |
           git config --global user.name "${GITHUB_USER}"
           git config --global user.email "${GITHUB_EMAIL}"
           source env.sh
           echo "Cloning kernel"
-          git clone --depth=1 $KERNEL_REPO -b $KERNEL_BRANCH kernel && cd kernel
+          git clone $KERNEL_REPO -b $KERNEL_BRANCH kernel && cd kernel
           mv /home/runner/work/lazy-kernel-build/lazy-kernel-build/build.sh /home/runner/work/lazy-kernel-build/lazy-kernel-build/kernel
           source build.sh
 
@@ -33,9 +54,10 @@ jobs:
           GITHUB_USER: ${{ secrets.USERNAME }}
           TG_CHAT_ID: ${{ secrets.CHAT_ID }}
           TG_TOKEN: ${{ secrets.TOKEN }}
+
       - uses: yanzay/notify-telegram@v0.1.0
         if: always()
         with:
-          chat: ${{ secrets.CHAT_ID }} # user id or channel name secret
-          token: ${{ secrets.TOKEN }} # token secret
-          status: ${{ job.status }} # do not modify this line
+          chat: ${{ secrets.CHAT_ID }}
+          token: ${{ secrets.TOKEN }}
+          status: ${{ job.status }}
