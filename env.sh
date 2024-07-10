@@ -4,7 +4,7 @@
 KERNEL_REPO=https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/sunfish_kernel
 
 # Kernel Branch
-KERNEL_BRANCH=master
+KERNEL_BRANCH=1
 
 # The name of the device for which the kernel is built
 MODEL="Google Pixel 4a"
