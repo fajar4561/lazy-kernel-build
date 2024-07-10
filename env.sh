@@ -4,7 +4,7 @@
 KERNEL_REPO=https://"${GITHUB_USER}":"${GITHUB_TOKEN}"@github.com/fajar4561/sunfish_kernel
 
 # Kernel Branch
-KERNEL_BRANCH=1
+KERNEL_BRANCH=3
 
 # The name of the device for which the kernel is built
 MODEL="Google Pixel 4a"
@@ -14,7 +14,7 @@ DEVICE="Sunfish"
 
 # The defconfig which should be used. Get it from config.gz from
 # your device or check source
-DEFCONFIG=sunfish_defconfig
+DEFCONFIG=blu_spark_defconfig
 
 # Show manufacturer info
 MANUFACTURERINFO="ASUSTek Computer Inc."
@@ -40,7 +40,7 @@ BUILD_TYPE="Nightly"
 
 # Specify compiler.
 # 'clang' or 'clangxgcc' or 'gcc' or 'gcc49' , 'linaro & 'gcc2', clang2
-COMPILER=clang2
+COMPILER=clang
 
 # Message on anykernel when installatio
 MESSAGE="just flash and forget"
