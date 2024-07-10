@@ -440,19 +440,10 @@ build_kernel() {
 gen_zip() {
 	msg "|| Zipping into a flashable zip ||"
 	mv "$KERNEL_DIR"/out/arch/arm64/boot/Image.lz4 AnyKernel3/Image.lz4
-	# tambahkan changelogs
-	if [ $CHANGELOGS = "y" ]
-	then
-		mv "$KERNEL_DIR"/changelogs AnyKernel3/changelogs
-	fi
-	
-	if [ $BUILD_DTBO = 1 ]
-	then
-		mv "$KERNEL_DIR"/out/arch/arm64/boot/dtbo.img AnyKernel3/dtbo.img
-	fi
+	msg "|| Pindah File Berhasil ||"
 	cd AnyKernel3 || exit
         cp -af anykernel-real.sh anykernel.sh
-        
+    msg "|| Tahap 1 ||"
 	sed -i "s/kernel.string=.*/kernel.string=$NAMA-$VARIAN/g" anykernel.sh
 	sed -i "s/kernel.for=.*/kernel.for=$JENIS/g" anykernel.sh
 	sed -i "s/kernel.compiler=.*/kernel.compiler=$KBUILD_COMPILER_STRING/g" anykernel.sh
@@ -461,12 +452,12 @@ gen_zip() {
 	sed -i "s/message.word=.*/message.word=$MESSAGE/g" anykernel.sh
 	sed -i "s/build.date=.*/build.date=$DATE2/g" anykernel.sh
 
-
+msg "|| tahap 2||"
 	zip -r9 "$ZIPNAME" * -x .git README.md anykernel-real.sh .gitignore zipsigner* *.zip
 
 	## Prepare a final zip variable
 	ZIP_FINAL="$ZIPNAME"
-	
+	msg "|| tahap 3 ||"
 	curl --progress-bar -F document=@"$ZIPNAME" "https://api.telegram.org/bot$TOKEN/sendDocument" \
         -F chat_id="$CHATID"  \
         -F "disable_web_page_preview=true" \
