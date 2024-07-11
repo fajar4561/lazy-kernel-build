@@ -452,11 +452,8 @@ gen_zip() {
 	msg "|| Tahap 1.3 ||"
 	sed -i "s/kernel.made=.*/kernel.made=$KBUILD_BUILD_USER@$KBUILD_BUILD_HOST/g" anykernel.sh
 	msg "|| Tahap 1.4 ||"
-	sed -i "s/kernel.version=.*/kernel.version=$LINUXVER/g" anykernel.sh
-	msg "|| Tahap 1.5 ||"
 	sed -i "s/message.word=.*/message.word=$MESSAGE/g" anykernel.sh
-	msg "|| Tahap 1.6 ||"
-	
+	msg "|| Tahap 1.5 ||"
 
 msg "|| tahap 2||"
 	zip -r9 "$ZIPNAME" * -x .git README.md anykernel-real.sh .gitignore zipsigner* *.zip
