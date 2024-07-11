@@ -106,7 +106,7 @@ COMMIT_HEAD=$(git log --pretty=format:'%s' -n1)
 
 # Set Date
 DATE=$(TZ=Asia/Jakarta date +"%Y%m%d_%H%M")
-DATE2=$(TZ=Asia/Jakarta date +"%Y%m%d")
+DATEE=$(TZ=Asia/Jakarta date +"%Y%m%d")
 #Now Its time for other stuffs like cloning, exporting, etc
 
  clone() {
@@ -450,7 +450,7 @@ gen_zip() {
 	sed -i "s/kernel.made=.*/kernel.made=$KBUILD_BUILD_USER@$KBUILD_BUILD_HOST/g" anykernel.sh
 	sed -i "s/kernel.version=.*/kernel.version=$LINUXVER/g" anykernel.sh
 	sed -i "s/message.word=.*/message.word=$MESSAGE/g" anykernel.sh
-	sed -i "s/build.date=.*/build.date=$DATE2/g" anykernel.sh
+	sed -i "s/build.date=.*/build.date=$DATEE/g" anykernel.sh
 
 msg "|| tahap 2||"
 	zip -r9 "$ZIPNAME" * -x .git README.md anykernel-real.sh .gitignore zipsigner* *.zip
@@ -466,7 +466,7 @@ msg "|| tahap 2||"
         - <code>$((DIFF / 60)) minute(s) $((DIFF % 60)) second(s) </code>
         
         📅 <b>Date</b>
-        -<code>$DATE2</code>
+        -<code>$DATEE</code>
         
         🔖 <b>Linux Version</b>
         -<code>$LINUXVER</code>
