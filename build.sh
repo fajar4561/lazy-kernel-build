@@ -195,7 +195,7 @@ DATEE=$(TZ=Asia/Jakarta date +"%Y%m%d")
 # Function to replace defconfig versioning
 setversioning() {
     # For staging branch
-    KERNELNAME="$NAMA-$JENIS-$VARIAN-$LINUXVER-$DATE"
+    KERNELNAME="$NAMA-$JENIS-$VARIAN-$DATE"
     # Export our new localversion and zipnames
     export KERNELNAME
     export ZIPNAME="$KERNELNAME.zip"
