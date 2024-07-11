@@ -445,12 +445,18 @@ gen_zip() {
         cp -af anykernel-real.sh anykernel.sh
     msg "|| Tahap 1 ||"
 	sed -i "s/kernel.string=.*/kernel.string=$NAMA-$VARIAN/g" anykernel.sh
+	msg "|| Tahap 1.1 ||"
 	sed -i "s/kernel.for=.*/kernel.for=$JENIS/g" anykernel.sh
+	msg "|| Tahap 1.2 ||"
 	sed -i "s/kernel.compiler=.*/kernel.compiler=$KBUILD_COMPILER_STRING/g" anykernel.sh
+	msg "|| Tahap 1.3 ||"
 	sed -i "s/kernel.made=.*/kernel.made=$KBUILD_BUILD_USER@$KBUILD_BUILD_HOST/g" anykernel.sh
+	msg "|| Tahap 1.4 ||"
 	sed -i "s/kernel.version=.*/kernel.version=$LINUXVER/g" anykernel.sh
+	msg "|| Tahap 1.5 ||"
 	sed -i "s/message.word=.*/message.word=$MESSAGE/g" anykernel.sh
-	sed -i "s#build.date=.*#build.date=$DATEE#g" anykernel.sh
+	msg "|| Tahap 1.6 ||"
+	
 
 msg "|| tahap 2||"
 	zip -r9 "$ZIPNAME" * -x .git README.md anykernel-real.sh .gitignore zipsigner* *.zip
